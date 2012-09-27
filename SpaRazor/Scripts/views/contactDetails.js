@@ -5,11 +5,11 @@
         },
 
         render: function () {
-            appFsMvc.utility.renderTemplate( "contactDetail.htm", $(this.el), { data: this.model.toJSON() } );
+            appFsMvc.utility.renderTemplate("contactDetail.htm", $(this.el), { data: this.model.toJSON() });
         },
 
         gotoCreateView: function () {
-            appFsMvc.App.create();
+            appFsMvc.App.navigate( "create", { trigger: true } );
         }
     });
 });
