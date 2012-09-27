@@ -7,8 +7,8 @@
         },
 
         initialize: function () {
-            this.contactDetailsView = new appFsMvc.ContactDetailsView({ el: $("#content"), model: window.appFsMvc.contacts });
-            this.createContactView = new appFsMvc.ContactCreateView({ el: $("#content"), model: window.appFsMvc.contacts });            
+            this.contactDetailsView = new appFsMvc.ContactDetailsView( { el: $("#content"), model: window.appFsMvc.contacts } );
+            this.createContactView = new appFsMvc.ContactCreateView( { el: $("#content"), model: window.appFsMvc.contacts } );            
         },
 
         list: function () {
@@ -21,8 +21,8 @@
     });
 
     appFsMvc.contacts = new appFsMvc.ContactCollection();
-    $.getJSON(appFsMvc.contacts.url, function (data) {
-        appFsMvc.contacts.reset(data);
+    $.getJSON( appFsMvc.contacts.url, function ( data ) {
+        appFsMvc.contacts.reset( data );
         appFsMvc.App = new AppRouter();
         Backbone.history.start();
     });
