@@ -11,12 +11,8 @@ type ContactsController() =
     inherit ApiController()
 
     // This is for demonstration purposes only. 
-    let contacts = 
-        List<Contact>
-            ( [|
-                Contact(FirstName = "John", LastName = "Doe", Phone = "123-123-1233")
-                Contact(FirstName = "Jane", LastName = "Doe", Phone = "123-111-9876")
-              |] ) 
+    let contacts = seq { yield Contact(FirstName = "John", LastName = "Doe", Phone = "123-123-1233")
+                         yield Contact(FirstName = "Jane", LastName = "Doe", Phone = "123-111-9876") }
 
     // GET /api/contacts
     member x.Get() = 
@@ -25,4 +21,4 @@ type ContactsController() =
     // POST /api/contacts
     member x.Post ([<FromBody>] contact:Contact) = 
         // TODO: Replace with your code to persiste the contact information
-        contacts.Add contact
+        contacts |> Seq.append [ contact ] 
