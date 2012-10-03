@@ -1,4 +1,4 @@
-﻿(function ( mod ) {
+﻿(function ( mod, $ ) {
     mod.buildTemplateUrl = function ( templateFileName ) {
         return "/Templates/" + templateFileName;
     };
@@ -37,7 +37,7 @@
         var baseUrl = pathArray[0] + "//" + pathArray[1] + pathArray[2];
         if (baseUrl.substr( baseUrl.length - 1) !== "/" ) {
             baseUrl += "/";
-        };
+        }
         return baseUrl;
     };
 
